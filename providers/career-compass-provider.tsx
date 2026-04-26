@@ -237,10 +237,10 @@ export function CareerCompassProvider({ children }: { children: React.ReactNode 
       }
 
       await supabase.from("quiz_runs").insert({
-        user_id: user.id,
-        field_id: fieldId,
-        top_match_id: topMatchId
-      });
+  user_id: user.id,
+  field_id: fieldId,
+  top_match_id: topMatchId
+} as any);
     },
     [persistLocalProfile, profile, supabase, user]
   );
