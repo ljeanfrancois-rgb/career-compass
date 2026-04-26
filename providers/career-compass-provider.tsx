@@ -128,12 +128,16 @@ export function CareerCompassProvider({ children }: { children: React.ReactNode 
       supabase.from("career_paths").select("*").order("created_at", { ascending: false })
     ]);
 
-    const quizHistory =
-      quizRunsResult.data?.map((row) => ({
-        createdAt: row.created_at,
-        fieldId: row.field_id,
-        topMatchId: row.top_match_id
-      })) ?? [];
+   const quizHistory =
+  ((quizRunsResult.data ?? []) as Array<{
+    created_at: string;
+    field_id: string;
+    top_match_id: string | null;
+  }>).map((row) => ({
+    createdAt: row.created_at,
+    fieldId: row.field_id,
+    topMatchId: row.top_match_id
+  }));
 
     if (profileResult.data) {
       const nextProfile = mapProfileRow(profileResult.data, quizHistory);
