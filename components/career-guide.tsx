@@ -13,7 +13,7 @@ export function CareerGuide() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const loggedCompletionRef = useRef<string | null>(null);
   const activeQuestions = useMemo(
-    () => [...questions, ...(fieldQuestions[selectedField] ?? [])],
+   () => [...questions, ...(fieldQuestions[selectedField as keyof typeof fieldQuestions] ?? [])],
     [selectedField]
   );
 

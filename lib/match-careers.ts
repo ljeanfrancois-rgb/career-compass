@@ -21,7 +21,9 @@ export function matchCareers(
   answers: Record<string, string>,
   paths: CareerPath[] = careerPaths
 ) {
-  const scopedQuestions = selectedField ? [...questions, ...(fieldQuestions[selectedField] ?? [])] : questions;
+  const scopedQuestions = selectedField
+  ? [...questions, ...(fieldQuestions[selectedField as keyof typeof fieldQuestions] ?? [])]
+  : questions;
   const questionOptions = scopedQuestions.flatMap((question) => question.options);
 
   const userDimensionScores = Object.values(answers).reduce((totals, answer) => {
