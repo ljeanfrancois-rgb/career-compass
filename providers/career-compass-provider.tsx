@@ -188,15 +188,15 @@ export function CareerCompassProvider({ children }: { children: React.ReactNode 
       }
 
       await supabase.from("profiles").upsert({
-        id: user.id,
-        name: nextLocal.name || null,
-        email: nextLocal.email || user.email || null,
-        first_dream: nextLocal.firstDream || null,
-        current_interest: nextLocal.currentInterest || null,
-        mission: nextLocal.mission || null,
-        saved_path_id: nextLocal.savedPathId,
-        completed_path_ids: nextLocal.completedPathIds
-      });
+  id: user.id,
+  name: nextLocal.name || null,
+  email: nextLocal.email || user.email || null,
+  first_dream: nextLocal.firstDream || null,
+  current_interest: nextLocal.currentInterest || null,
+  mission: nextLocal.mission || null,
+  saved_path_id: nextLocal.savedPathId,
+  completed_path_ids: nextLocal.completedPathIds
+} as any);
     },
     [persistLocalProfile, profile, supabase, user]
   );
