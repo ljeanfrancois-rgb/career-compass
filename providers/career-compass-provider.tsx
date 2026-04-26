@@ -255,20 +255,20 @@ export function CareerCompassProvider({ children }: { children: React.ReactNode 
       }
 
       await supabase.from("career_paths").upsert({
-        id: path.id,
-        created_by: user.id,
-        field: path.field,
-        title: path.title,
-        description: path.description,
-        mission: path.mission,
-        traits: path.traits,
-        skills: path.skills,
-        classes: path.classes,
-        projects: path.projects,
-        roadmap: path.roadmap,
-        answer_weights: path.answerWeights,
-        is_public: true
-      });
+  id: path.id,
+  created_by: user.id,
+  field: path.field,
+  title: path.title,
+  description: path.description,
+  mission: path.mission,
+  traits: path.traits,
+  skills: path.skills,
+  classes: path.classes,
+  projects: path.projects,
+  roadmap: path.roadmap,
+  answer_weights: path.answerWeights,
+  is_public: true
+} as any);
     },
     [customPaths, persistLocalPaths, supabase, user]
   );
